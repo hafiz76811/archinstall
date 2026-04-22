@@ -23,29 +23,23 @@ yay_install () {
 systemctl_enable () {
   local services=$@
   for service in ${services[@]}; do
-    if true; then
-      sudo systemctl enable $service.service
-      echo 'service:' $service
-    fi
+    sudo systemctl enable $service.service
+    echo 'service:' $service
   done
 }
 
 systemctl_disable () {
   local services=$@
   for service in ${services[@]}; do
-    if true; then
-      sudo systemctl disable $service.service
-      echo 'service disable:' $service
-    fi
+    sudo systemctl disable $service.service
+    echo 'service disable:' $service
   done
 }
 
 systemctl_user_enable () {
   local services=$@
   for service in ${services[@]}; do
-    if true; then
-      systemctl --user enable $service.service
-      echo 'service:' $service
-    fi
+    systemctl --user enable $service.service
+    echo 'service:' $service
   done
 }
