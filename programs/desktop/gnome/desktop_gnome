@@ -1,7 +1,3 @@
-# install paket utama (gnome desktop)
-gnome gnome-extra
-
-# pasang gnome tweaks
-sudo pacman -S gnome-tweaks
-
-# firefox http://extensions.gnome.org
+gnome
+gnome-extra
+gnome-tweaks

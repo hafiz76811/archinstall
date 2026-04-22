@@ -1,8 +1,8 @@
 pacman_install () {
-  packages=$@
+  local packages=$@
   for package in ${packages[@]}; do
     if pacman -Qs $package &> /dev/null && false || true; then
-      sudo pacman -Sy $package --noconfirm
+      sudo pacman -Sy $package --noconfirm --needed
     else
       echo 'package:' $package '[installed]'
     fi
@@ -10,10 +10,10 @@ pacman_install () {
 }
 
 yay_install () {
-  packages=$@
+  local packages=$@
   for package in ${packages[@]}; do
     if yay -Qs $package &> /dev/null && false || true; then
-      yay -Sy $package --noconfirm
+      yay -Sy $package --noconfirm --needed
     else
       echo 'package:' $package '[installed]'
     fi
@@ -21,30 +21,30 @@ yay_install () {
 }
 
 systemctl_enable () {
-  services=$@
+  local services=$@
   for service in ${services[@]}; do
     if true; then
-      # sudo systemctl enable $service.service
+      sudo systemctl enable $service.service
       echo 'service:' $service
     fi
   done
 }
 
 systemctl_disable () {
-  services=$@
+  local services=$@
   for service in ${services[@]}; do
     if true; then
-      # sudo systemctl disable $service.service
+      sudo systemctl disable $service.service
       echo 'service disable:' $service
     fi
   done
 }
 
 systemctl_user_enable () {
-  services=$@
+  local services=$@
   for service in ${services[@]}; do
     if true; then
-      # systemctl --user enable $service.service
+      systemctl --user enable $service.service
       echo 'service:' $service
     fi
   done

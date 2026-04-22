@@ -42,7 +42,9 @@ sleep 2
 
 # Memasang aur helper (yay)
 echo -e "\nInstalling aur helper..."
-source programs/packages/yay/aur_helper
+if ! [ -d ~/.config/yay ]; then
+	source programs/packages/yay/aur_helper
+fi
 
 # Install semua packages hyprland
 echo 'Installing hyprland...'
