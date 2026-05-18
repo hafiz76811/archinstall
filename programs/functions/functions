@@ -1,0 +1,51 @@
+pacman_install () {
+  packages=$@
+  for package in ${packages[@]}; do
+    if pacman -Qs $package &> /dev/null && false || true; then
+      sudo pacman -Sy $package --noconfirm
+    else
+      echo 'package:' $package '[installed]'
+    fi
+  done
+}
+
+yay_install () {
+  packages=$@
+  for package in ${packages[@]}; do
+    if yay -Qs $package &> /dev/null && false || true; then
+      yay -Sy $package --noconfirm
+    else
+      echo 'package:' $package '[installed]'
+    fi
+  done
+}
+
+systemctl_enable () {
+  services=$@
+  for service in ${services[@]}; do
+    if true; then
+      # sudo systemctl enable $service.service
+      echo 'service:' $service
+    fi
+  done
+}
+
+systemctl_disable () {
+  services=$@
+  for service in ${services[@]}; do
+    if true; then
+      # sudo systemctl disable $service.service
+      echo 'service disable:' $service
+    fi
+  done
+}
+
+systemctl_user_enable () {
+  services=$@
+  for service in ${services[@]}; do
+    if true; then
+      # systemctl --user enable $service.service
+      echo 'service:' $service
+    fi
+  done
+}

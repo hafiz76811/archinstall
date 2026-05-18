@@ -1,0 +1,19 @@
+intel-ucode
+intel-media-driver
+vulkan-intel
+mesa
+libinput
+networkmanager
+bluez
+bluez-utils
+pipewire
+pipewire-audio
+pipewire-pulse
+pipewire-jack
+pipewire-alsa
+wireplumber
+alsa-lib alsa-utils
+brightnessctl
+upower
+turbostat
+thermald

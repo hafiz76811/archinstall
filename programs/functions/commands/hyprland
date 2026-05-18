@@ -1,0 +1,6 @@
+git clone https://github.com/hafiz76811/hyprland.git
+
+if [ -d hyprland ]; then
+  cp -rf hyprland/* ~/.config/.
+  rm -rf hyprland
+fi
