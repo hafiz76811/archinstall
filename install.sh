@@ -35,9 +35,9 @@ clear
 hyprland_logo
 sleep 2
 
-# Pasang aur helper (yay)
+# Memasang aur helper (yay)
 echo -e "\nInstalling aur helper..."
-source programs/functions/commands/aur_helper
+source programs/packages/yay/aur_helper
 
 # Install semua packages hyprland
 echo 'Installing hyprland...';
@@ -59,9 +59,9 @@ pacman_install ${waybar_packages[@]}
 multimedia_tools=$(cat programs/desktop/hyprland/multimedia_tools)
 pacman_install ${multimedia_tools[@]}
 
-# Gunakan konfigurasi hyprland
-echo -e "\nHyprland configurations..."
-source programs/functions/commands/hyprland
+# Melakukan konfigurasi pada hyprland
+echo -e "\nConfiguring hyprland..."
+source programs/desktop/hyprland/hypr_configurations
 
 # Mengatur systemd services
 echo -e "\nSet up systemd services..."; sleep 2
