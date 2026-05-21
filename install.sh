@@ -59,6 +59,9 @@ pacman_install ${waybar_packages[@]}
 multimedia_tools=$(cat programs/desktop/hyprland/multimedia_tools)
 pacman_install ${multimedia_tools[@]}
 
+adwaita_theme=$(cat programs/desktop/hyprland/adwaita_theme)
+pacman_install ${adwaita_theme[@]}
+
 # Melakukan konfigurasi pada hyprland
 echo -e "\nConfiguring hyprland..."
 source programs/desktop/hyprland/hypr_configurations
