@@ -82,6 +82,6 @@ echo "";
 
 # Reboot system setelah siap
 read -p "Reboot system now? [Y/n] " reboot
-if [[ $reboot == "y" ]]; then
+if [ "$reboot" == "y" ]; then
   systemctl reboot
 fi
