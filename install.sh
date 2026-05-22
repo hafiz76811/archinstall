@@ -30,6 +30,11 @@ pacman_install ${additional_tools[@]}
 basic_fonts=$(cat programs/packages/pacman/basic_fonts)
 pacman_install ${basic_fonts[@]}
 
+# Install gnome desktop
+echo 'Installing gnome desktop...'
+desktop_gnome=$(cat programs/desktop/gnome/desktop_gnome)
+pacman_install ${desktop_gnome[@]}
+
 # Clear dan tampilkan logo hyprland
 clear
 hyprland_logo
@@ -40,7 +45,7 @@ echo -e "\nInstalling aur helper..."
 source programs/packages/yay/aur_helper
 
 # Install semua packages hyprland
-echo 'Installing hyprland...';
+echo 'Installing hyprland...'
 hypr_ecosystem=$(cat programs/desktop/hyprland/hypr_ecosystem)
 pacman_install ${hypr_ecosystem[@]}
 
