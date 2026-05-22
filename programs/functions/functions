@@ -1,22 +1,14 @@
 pacman_install () {
   local packages=$@
   for package in ${packages[@]}; do
-    if pacman -Qs $package &> /dev/null && false || true; then
-      sudo pacman -Sy $package --noconfirm --needed
-    else
-      echo 'package:' $package '[installed]'
-    fi
+    sudo pacman -Sy $package --noconfirm --needed
   done
 }
 
 yay_install () {
   local packages=$@
   for package in ${packages[@]}; do
-    if yay -Qs $package &> /dev/null && false || true; then
-      yay -Sy $package --noconfirm --needed
-    else
-      echo 'package:' $package '[installed]'
-    fi
+    yay -Sy $package --noconfirm --needed
   done
 }
 

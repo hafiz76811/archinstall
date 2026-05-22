@@ -1,8 +1,5 @@
 xhost +si:localuser:root
-
 chsh -s /bin/zsh
-
 localectl set-keymap us
 localectl set-locale LANG=en_US.UTF-8
-
 sudo timedatectl set-timezone Asia/Jakarta
