@@ -71,7 +71,9 @@ pacman_install ${adwaita_theme[@]}
 
 # Melakukan konfigurasi pada hyprland
 echo -e "\nConfiguring hyprland..."
-source programs/desktop/hyprland/hypr_configurations
+if ! [ -d ~/.config/hypr/settings ]; then
+  source programs/desktop/hyprland/hypr_configurations
+fi
 
 # Mengatur systemd services
 echo -e "\nSet up systemd services..."; sleep 2
