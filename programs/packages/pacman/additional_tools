@@ -2,6 +2,10 @@ texinfo
 man-db
 nano
 neovim
+ripgrep
+fd
+luarocks
+lua51
 fzf
 yazi
 unzip
