@@ -1,99 +1,48 @@
 #!/bin/bash
 
-# Hubungkan files
-source programs/functions/functions
-source programs/functions/logos/styling
-
-# Clear dan tampilkan logo
-clear
-installing_logo
-sleep 2
-
-# Hentikan script jika ada error
+source programs/functions.sh
+source programs/packages
+#
 set -e
-
-# Update dan upgrade system
-echo 'Update and upgrade system...'
 sudo pacman -Syyu
-
-# Install banyak packages dasar
-echo -e "\nInstalling basic packages..."
-basic_packages=$(cat programs/packages/pacman/basic_packages)
-pacman_install ${basic_packages[@]}
-
-hardware_packages=$(cat programs/packages/pacman/hardware_packages)
-pacman_install ${hardware_packages[@]}
-
-additional_tools=$(cat programs/packages/pacman/additional_tools)
-pacman_install ${additional_tools[@]}
-
-basic_fonts=$(cat programs/packages/pacman/basic_fonts)
-pacman_install ${basic_fonts[@]}
-
-# Install gnome desktop
-echo 'Installing gnome desktop...'
-desktop_gnome=$(cat programs/desktop/gnome/desktop_gnome)
-pacman_install ${desktop_gnome[@]}
-
-# Clear dan tampilkan logo hyprland
-clear
-hyprland_logo
-sleep 2
-
-# Memasang aur helper (yay)
-echo -e "\nInstalling aur helper..."
-if ! [ -d ~/.config/yay ]; then
-  source programs/packages/yay/aur_helper
+#
+pacman_install ${package_basic[@]};
+pacman_install ${package_hardware[@]};
+pacman_install ${basic_fonts[@]};
+pacman_install ${additional_tools[@]};
+#
+#
+source programs/yay.sh
+#
+#
+source programs/desktop/gnome
+#
+read -p "Install... gnome? [Y/n] " gnome
+if [ "$gnome" = "y" ] || [ -z "$gnome" ]; then
+  pacman_install ${gnome_desktop[@]};
+  service_enable ${gnome_service[@]};
 fi
-
-# Install semua packages hyprland
-echo 'Installing hyprland...'
-hypr_ecosystem=$(cat programs/desktop/hyprland/hypr_ecosystem)
-pacman_install ${hypr_ecosystem[@]}
-
-hypr_ecosystem_aur=$(cat programs/desktop/hyprland/hypr_ecosystem_aur)
-yay_install ${hypr_ecosystem_aur[@]}
-
-display_manager=$(cat programs/desktop/hyprland/display_manager)
-pacman_install ${display_manager[@]}
-
-other_packages=$(cat programs/desktop/hyprland/other_packages)
-pacman_install ${other_packages[@]}
-
-waybar_packages=$(cat programs/desktop/hyprland/waybar_packages)
-pacman_install ${waybar_packages[@]}
-
-multimedia_tools=$(cat programs/desktop/hyprland/multimedia_tools)
-pacman_install ${multimedia_tools[@]}
-
-adwaita_theme=$(cat programs/desktop/hyprland/adwaita_theme)
-pacman_install ${adwaita_theme[@]}
-
-# Melakukan konfigurasi pada hyprland
-echo -e "\nConfiguring hyprland..."
-if ! [ -d ~/.config/hypr/settings ]; then
-  source programs/desktop/hyprland/hypr_configurations
+#
+#
+source programs/desktop/hyprland
+#
+read -p "Install... hyprland? [Y/n] " hypr
+if [ "$hypr" = "y" ] || [ -z "$hypr" ]; then
+  pacman_install ${hypr_ecosystem[@]};
+  yay_install ${hypr_ecosystem_aur[@]};
+  pacman_install ${hypr_widget[@]};
+  pacman_install ${hypr_login[@]};
+  pacman_install ${waybar_tools[@]};
+  pacman_install ${multimedia[@]};
+  pacman_install ${adwaita_theme[@]};
+  # hyprland services
+  service_enable ${hypr_service[@]};
+  service_enable_user ${hypr_user_service[@]};
+  service_disable ${hypr_disable[@]};
 fi
-
-# Mengatur systemd services
-echo -e "\nSet up systemd services..."; sleep 2
-services=$(cat programs/systemd/enable/services)
-systemctl_enable ${services[@]}
-
-user_services=$(cat programs/systemd/enable/user_services)
-systemctl_user_enable ${user_services[@]}
-
-service=$(cat programs/systemd/disable/service)
-systemctl_disable ${service[@]}
-
-# Jalankan konfigurasi lain
-echo -e "\nAdditional configurations..."
-source programs/functions/commands/other
-
-echo "";
-
-# Reboot system setelah siap
-read -p "Reboot system now? [Y/n] " reboot
-if [ "$reboot" == "y" ]; then
+#
+#
+read -p "Reboot system now? [Y/n] " rb
+if [ "$rb" = "y" ] || [ -z "$rb" ]; then
   systemctl reboot
 fi

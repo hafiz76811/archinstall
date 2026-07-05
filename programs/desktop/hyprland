@@ -1,0 +1,109 @@
+hypr_ecosystem=(
+  dms-shell-hyprland
+  hyprcursor
+  hypre
+  hyprgraphics
+  hypridle
+  hyprland
+  hyprland-guiutils
+  hyprland-protocols
+  hyprland-qt-support
+  hyprlang
+  hyprlock
+  hyprpaper
+  hyprpicker
+  hyprpolkitagent
+  hyprshot
+  hyprsunset
+  hyprtoolkit
+  hyprutils
+  hyprwayland-scanner
+  hyprwire
+  nwg-dock-hyprland
+  xdg-desktop-portal-hyprland
+  aquamarine
+  wayland
+  xorg-xwayland
+  xdg-desktop-portal-gtk
+)
+
+hypr_ecosystem_aur=(
+  hyprsysteminfo
+  hyprqt6engine
+  hyprshutdown
+  hyprtiler
+  aylurs-gtk-shell
+  wlogout
+)
+
+hypr_widget=(
+  kitty
+  mako
+  waybar
+  wofi
+  firefox
+  nwg-look
+  qt5-wayland
+  qt6-wayland
+)
+
+hypr_login=(
+  greetd
+  cage
+  greetd-regreet
+)
+
+waybar_tools=(
+  mpd
+  mpd-mpris
+  mpc
+  ncmpcpp
+  ffmpeg
+)
+
+multimedia=(
+  loupe gthumb
+  amberol
+  celluloid
+  nautilus gvfs-mtp android-udev
+  eyedropper palette
+  ghostty
+  imv
+  mpd mpc
+  mpv
+  yazi
+)
+
+adwaita_theme=(
+  adwaita-cursors
+  adwaita-fonts
+  adwaita-icon-theme
+  adwaita-icon-theme-legacy
+  gnome-themes-extra
+)
+
+# hyprland services
+hypr_service=(
+  NetworkManager
+  bluetooth
+  greetd
+)
+
+hypr_user_service=(
+  hypridle
+  hyprpaper
+  hyprpolkitagent
+  hyprsunset
+  mpd
+)
+
+hypr_disable=(
+  systemd-networkd
+)
+
+# hyprland configs
+xhost +si:localuser:root
+chsh -s /bin/zsh
+localectl set-keymap us
+localectl set-locale LANG=en_US.UTF-8
+sudo timedatectl set-timezone Asia/Jakarta

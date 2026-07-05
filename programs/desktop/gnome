@@ -1,0 +1,10 @@
+gnome_desktop=(
+  gdm
+  gnome
+  gnome-extra
+  gnome-tweaks
+)
+
+gnome_service=(
+  gdm
+)

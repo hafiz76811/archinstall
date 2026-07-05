@@ -1,0 +1,72 @@
+package_basic=(
+  base
+  linux
+  linux-firmware
+  linux-firmware-intel
+  linux-firmware-cirrus
+  alsa-firmware
+)
+
+package_hardware=(
+  intel-ucode
+  intel-media-driver
+  vulkan-intel
+  mesa
+  libinput
+  networkmanager
+  bluez
+  bluez-utils
+  pipewire
+  pipewire-audio
+  pipewire-pulse
+  pipewire-jack
+  pipewire-alsa
+  wireplumber
+  alsa-lib alsa-utils
+  brightnessctl
+  upower
+  turbostat
+  thermald
+)
+
+basic_fonts=(
+  noto-fonts
+  noto-fonts-cjk
+  noto-fonts-emoji
+  noto-fonts-extra
+  otf-font-awesome
+  ttf-jetbrains-mono-nerd
+  terminus-font
+  ttf-dejavu
+  ttf-liberation
+)
+
+additional_tools=(
+  texinfo
+  man-db
+  nano
+  neovim
+  ripgrep
+  fd
+  luarocks
+  lua51
+  fzf
+  yazi
+  unzip
+  zip
+  sudo
+  curl
+  bat
+  axel
+  fastfetch
+  trash-cli
+  htop
+  zsh
+  git
+  tree
+  wl-clipboard
+  wl-clip-persist
+  xdg-user-dirs
+  xdg-utils
+  xorg-xhost
+)

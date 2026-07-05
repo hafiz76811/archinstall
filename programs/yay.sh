@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if ! [ -d ~/.config/yay ]; then
+  sudo pacman -S --needed git base-devel
+  git clone https://aur.archlinux.org/yay.git
+
+  if [ -d yay ]; then
+    cd yay
+    makepkg -si
+    yay -Y --gendb
+    yay -Syu --devel
+    yay -Y --devel --save
+    yay -Syu
+    cd ..
+  fi
+
+  if [ -d yay ]; then
+    rm -rf yay
+  fi
+else
+  echo "yay... installed!"
+fi
