@@ -86,7 +86,7 @@ adwaita_theme=(
 hypr_service=(
   NetworkManager
   bluetooth
-  greetd
+  #greetd
 )
 
 hypr_user_service=(

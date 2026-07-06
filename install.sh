@@ -2,9 +2,11 @@
 
 source programs/functions.sh
 source programs/packages
+source programs/logos
 #
 set -e
 sudo pacman -Syyu
+installing_logo
 #
 pacman_install ${package_basic[@]};
 pacman_install ${package_hardware[@]};
@@ -19,8 +21,9 @@ source programs/desktop/gnome
 #
 read -p "Install... gnome? [Y/n] " gnome
 if [ "$gnome" = "y" ] || [ -z "$gnome" ]; then
+  gnome_logo
   pacman_install ${gnome_desktop[@]};
-  service_enable ${gnome_service[@]};
+  # service_enable ${gnome_service[@]};
 fi
 #
 #
@@ -28,6 +31,7 @@ source programs/desktop/hyprland
 #
 read -p "Install... hyprland? [Y/n] " hypr
 if [ "$hypr" = "y" ] || [ -z "$hypr" ]; then
+  hyprland_logo
   pacman_install ${hypr_ecosystem[@]};
   yay_install ${hypr_ecosystem_aur[@]};
   pacman_install ${hypr_widget[@]};
@@ -44,5 +48,8 @@ fi
 #
 read -p "Reboot system now? [Y/n] " rb
 if [ "$rb" = "y" ] || [ -z "$rb" ]; then
+  if pacman -Qtdq &> /dev/null; then
+    sudo pacman -Rns $(pacman -Qtdq)
+  fi
   systemctl reboot
 fi
