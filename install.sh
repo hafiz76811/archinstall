@@ -1,5 +1,7 @@
 #!/bin/bash
 
+conf=true
+
 source programs/functions.sh
 source programs/packages
 source programs/logos
@@ -49,6 +51,13 @@ if [ "$hypr" = "y" ] || [ -z "$hypr" ]; then
   service_enable ${hypr_service[@]};
   service_enable_user ${hypr_user_service[@]};
   service_disable ${hypr_disable[@]};
+
+  if $conf; then
+    git clone https://github.com/hafiz76811/hyprland.git
+    if [ -d hyprland ]; then
+      cp -r hyprland/* ~/.config/.
+    fi
+  fi
 fi
 
 
@@ -63,6 +72,13 @@ if [ "$bspwm" = "y" ] || [ -z "$bspwm" ]; then
   pacman_install ${bspwm_touchpad[@]};
   pacman_install ${multimedia[@]}
   yay_install ${bspwm_aur[@]};
+
+  if $conf; then
+    git clone https://github.com/hafiz76811/hyprland.git
+    if [ -d bspwm ]; then
+      cp -r bspwm/* ~/.config/.
+    fi
+  fi
 fi
 
 

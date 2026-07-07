@@ -47,6 +47,14 @@ multimedia=(
   yazi
 )
 
+# bspwm configs
+chsh -s /bin/zsh
+localectl set-keymap us
+localectl set-locale LANG=en_US.UTF-8
+sudo timedatectl set-timezone Asia/Jakarta
+
+
+
 # konfigurasi yang dibutuhkan = (
 # efek blur dan shadow
 # display_manager
