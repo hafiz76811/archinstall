@@ -1,5 +1,4 @@
 gnome_desktop=(
-  gdm
   gnome
   gnome-extra
   gnome-tweaks

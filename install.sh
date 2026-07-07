@@ -3,32 +3,38 @@
 source programs/functions.sh
 source programs/packages
 source programs/logos
-#
+
+# exit on any error
 set -e
+
+# update && upgrade
 sudo pacman -Syyu
+
+
+# install packages
 installing_logo
-#
 pacman_install ${package_basic[@]};
 pacman_install ${package_hardware[@]};
 pacman_install ${basic_fonts[@]};
 pacman_install ${additional_tools[@]};
-#
-#
+
+
+# install aur helper
 source programs/yay.sh
-#
-#
+
+
+# install gnome
 source programs/desktop/gnome
-#
 read -p "Install... gnome? [Y/n] " gnome
 if [ "$gnome" = "y" ] || [ -z "$gnome" ]; then
   gnome_logo
   pacman_install ${gnome_desktop[@]};
   # service_enable ${gnome_service[@]};
 fi
-#
-#
+
+
+# install hyprland
 source programs/desktop/hyprland
-#
 read -p "Install... hyprland? [Y/n] " hypr
 if [ "$hypr" = "y" ] || [ -z "$hypr" ]; then
   hyprland_logo
@@ -44,8 +50,23 @@ if [ "$hypr" = "y" ] || [ -z "$hypr" ]; then
   service_enable_user ${hypr_user_service[@]};
   service_disable ${hypr_disable[@]};
 fi
-#
-#
+
+
+# install bspwm
+source programs/desktop/bspwm
+read -p "Install... bspwm? [Y/n] " bspwm
+if [ "$bspwm" = "y" ] || [ -z "$bspwm" ]; then
+  bspwm_logo
+  pacman_install ${bspwm_display_manager[@]};
+  pacman_install ${bspwm_window_manager[@]};
+  pacman_install ${bspwm_utilities[@]};
+  pacman_install ${bspwm_touchpad[@]};
+  pacman_install ${multimedia[@]}
+  yay_install ${bspwm_aur[@]};
+fi
+
+
+# reboot system
 read -p "Reboot system now? [Y/n] " rb
 if [ "$rb" = "y" ] || [ -z "$rb" ]; then
   if pacman -Qtdq &> /dev/null; then

@@ -1,0 +1,66 @@
+bspwm_display_manager=(
+  lightdm
+  lightdm-gtk-greeter
+)
+
+bspwm_window_manager=(
+  xorg-server xorg-xinit
+  bspwm sxhkd
+  xorg-xsetroot
+)
+
+bspwm_utilities=(
+  xss-lock i3lock
+  feh
+  xcolor xclip
+  polkit-gnome
+  maim xclip libnotify
+  redshift
+  xdg-desktop-portal xdg-desktop-portal-gtk
+  dunst libnotify
+  polybar
+  rofi
+  firefox
+  picom
+)
+
+bspwm_touchpad=(
+  xf86-input-libinput
+  xorg-xinput
+)
+
+bspwm_aur=(
+  xautolock
+  #eww
+)
+
+multimedia=(
+  loupe gthumb
+  amberol
+  celluloid
+  nautilus gvfs-mtp android-udev
+  eyedropper palette
+  ghostty
+  imv
+  mpd mpc
+  mpv
+  yazi
+)
+
+# konfigurasi yang dibutuhkan = (
+# efek blur dan shadow
+# display_manager
+# bspwm dan sxhkd
+# cursor, dark theme
+# wallpaper
+# idle dan lockscreen
+# shortcut colorpicker
+# polkit-agent
+# shortcut screenshot, screenrecord
+# widget: wifi, bluetooth, poweroff, music
+# notifikasi
+# barstatus: internet, jam, battery, volume, {workspaces}, audio on/off, cpu, menu
+# apps launcher
+# konfigurasi tombol f1-f12
+# script reload
+# );
