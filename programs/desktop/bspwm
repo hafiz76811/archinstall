@@ -10,18 +10,20 @@ bspwm_window_manager=(
 )
 
 bspwm_utilities=(
-  xss-lock i3lock
+  picom
+  lxappearance
   feh
-  xcolor xclip
-  polkit-gnome
-  maim xclip libnotify
-  redshift
-  xdg-desktop-portal xdg-desktop-portal-gtk
+  xorg-xset xss-lock i3lock
+  xcolor gcolor3
+  lxsession
+  maim xclip slop xdotool
   dunst libnotify
   polybar
   rofi
-  firefox
-  picom
+)
+
+polybar=(
+  wireless_tools
 )
 
 bspwm_touchpad=(
@@ -30,14 +32,14 @@ bspwm_touchpad=(
 )
 
 bspwm_aur=(
-  xautolock
-  #eww
+  xautolock 
 )
 
 multimedia=(
-  loupe gthumb
+  loupe gthumb imagemagick
   amberol
   celluloid
+  pavucontrol
   nautilus gvfs-mtp android-udev
   eyedropper palette
   ghostty
@@ -48,27 +50,12 @@ multimedia=(
 )
 
 # bspwm configs
-chsh -s /bin/zsh
-localectl set-keymap us
-localectl set-locale LANG=en_US.UTF-8
-sudo timedatectl set-timezone Asia/Jakarta
+if ! [ "$SHELL" = "/bin/zsh" ]; then
+  chsh -s /bin/zsh
+  localectl set-keymap us
+  localectl set-locale LANG=en_US.UTF-8
+  timedatectl set-timezone Asia/Jakarta
+fi
 
-
-
-# konfigurasi yang dibutuhkan = (
-# efek blur dan shadow
-# display_manager
-# bspwm dan sxhkd
-# cursor, dark theme
-# wallpaper
-# idle dan lockscreen
-# shortcut colorpicker
-# polkit-agent
-# shortcut screenshot, screenrecord
-# widget: wifi, bluetooth, poweroff, music
-# notifikasi
-# barstatus: internet, jam, battery, volume, {workspaces}, audio on/off, cpu, menu
-# apps launcher
-# konfigurasi tombol f1-f12
-# script reload
-# );
+# display_manager (lightdm)
+# poweroff menu
