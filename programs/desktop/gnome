@@ -2,6 +2,7 @@ gnome_desktop=(
   gnome
   gnome-extra
   gnome-tweaks
+  polkit-gnome
 )
 
 gnome_service=(
@@ -9,7 +10,9 @@ gnome_service=(
 )
 
 # gnome configs
-chsh -s /bin/zsh
-localectl set-keymap us
-localectl set-locale LANG=en_US.UTF-8
-sudo timedatectl set-timezone Asia/Jakarta
+if ! [ "$SHELL" = "/bin/zsh" ]; then
+  chsh -s /bin/zsh
+  localectl set-keymap us
+  localectl set-locale LANG=en_US.UTF-8
+  timedatectl set-timezone Asia/Jakarta
+fi

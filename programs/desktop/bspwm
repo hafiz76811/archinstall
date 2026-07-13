@@ -12,7 +12,7 @@ bspwm_window_manager=(
 bspwm_utilities=(
   picom
   lxappearance
-  feh
+  xwallpaper
   xorg-xset xss-lock i3lock
   xcolor gcolor3
   lxsession
@@ -22,7 +22,7 @@ bspwm_utilities=(
   rofi
 )
 
-polybar=(
+bspwm_bar=(
   wireless_tools
 )
 
@@ -36,6 +36,7 @@ bspwm_aur=(
 )
 
 multimedia=(
+  firefox
   loupe gthumb imagemagick
   amberol
   celluloid
@@ -49,6 +50,14 @@ multimedia=(
   yazi
 )
 
+bspwm_theme=(
+  adwaita-cursors
+  adwaita-fonts
+  adwaita-icon-theme
+  adwaita-icon-theme-legacy
+  gnome-themes-extra
+)
+
 # bspwm configs
 if ! [ "$SHELL" = "/bin/zsh" ]; then
   chsh -s /bin/zsh
@@ -58,4 +67,4 @@ if ! [ "$SHELL" = "/bin/zsh" ]; then
 fi
 
 # display_manager (lightdm)
-# poweroff menu
+# poweroff menu -- xorg-server

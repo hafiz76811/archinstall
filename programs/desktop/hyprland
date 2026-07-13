@@ -32,7 +32,7 @@ hypr_ecosystem_aur=(
   hyprqt6engine
   hyprshutdown
   hyprtiler
-  aylurs-gtk-shell
+  #aylurs-gtk-shell
   wlogout
 )
 
@@ -53,7 +53,7 @@ hypr_login=(
   greetd-regreet
 )
 
-waybar_tools=(
+hypr_bar=(
   mpd
   mpd-mpris
   mpc
@@ -74,7 +74,7 @@ multimedia=(
   yazi
 )
 
-adwaita_theme=(
+hypr_theme=(
   adwaita-cursors
   adwaita-fonts
   adwaita-icon-theme
@@ -102,8 +102,10 @@ hypr_disable=(
 )
 
 # hyprland configs
-xhost +si:localuser:root
-chsh -s /bin/zsh
-localectl set-keymap us
-localectl set-locale LANG=en_US.UTF-8
-sudo timedatectl set-timezone Asia/Jakarta
+if ! [ "$SHELL" = "/bin/zsh" ]; then
+  chsh -s /bin/zsh
+  xhost +si:localuser:root
+  localectl set-keymap us
+  localectl set-locale LANG=en_US.UTF-8
+  timedatectl set-timezone Asia/Jakarta
+fi

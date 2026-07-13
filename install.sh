@@ -1,6 +1,6 @@
 #!/bin/bash
 
-conf=true
+conf=false
 
 source programs/functions.sh
 source programs/packages
@@ -14,11 +14,11 @@ sudo pacman -Syyu
 
 
 # install packages
-installing_logo
-pacman_install ${package_basic[@]};
-pacman_install ${package_hardware[@]};
-pacman_install ${basic_fonts[@]};
-pacman_install ${additional_tools[@]};
+# installing_logo
+# pacman_install ${package_basic[@]};
+# pacman_install ${package_hardware[@]};
+# pacman_install ${basic_fonts[@]};
+# pacman_install ${additional_tools[@]};
 
 
 # install aur helper
@@ -44,9 +44,9 @@ if [ "$hypr" = "y" ] || [ -z "$hypr" ]; then
   yay_install ${hypr_ecosystem_aur[@]};
   pacman_install ${hypr_widget[@]};
   pacman_install ${hypr_login[@]};
-  pacman_install ${waybar_tools[@]};
+  pacman_install ${hypr_bar[@]};
   pacman_install ${multimedia[@]};
-  pacman_install ${adwaita_theme[@]};
+  pacman_install ${hypr_theme[@]};
   # hyprland services
   service_enable ${hypr_service[@]};
   service_enable_user ${hypr_user_service[@]};
@@ -56,6 +56,7 @@ if [ "$hypr" = "y" ] || [ -z "$hypr" ]; then
     git clone https://github.com/hafiz76811/hyprland.git
     if [ -d hyprland ]; then
       cp -r hyprland/* ~/.config/.
+      rm -r ~/.config/.git
     fi
   fi
 fi
@@ -69,14 +70,17 @@ if [ "$bspwm" = "y" ] || [ -z "$bspwm" ]; then
   pacman_install ${bspwm_display_manager[@]};
   pacman_install ${bspwm_window_manager[@]};
   pacman_install ${bspwm_utilities[@]};
+  pacman_install ${bspwm_bar[@]};
   pacman_install ${bspwm_touchpad[@]};
-  pacman_install ${multimedia[@]}
-  yay_install ${bspwm_aur[@]};
+  # yay_install ${bspwm_aur[@]};
+  pacman_install ${multimedia[@]};
+  pacman_install ${bspwm_theme[@]};
 
   if $conf; then
     git clone https://github.com/hafiz76811/hyprland.git
     if [ -d bspwm ]; then
       cp -r bspwm/* ~/.config/.
+      rm -r ~/.config/.git
     fi
   fi
 fi
