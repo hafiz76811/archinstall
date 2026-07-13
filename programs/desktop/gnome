@@ -9,6 +9,14 @@ gnome_service=(
   gdm
 )
 
+gnome_theme=(
+  adwaita-cursors
+  adwaita-fonts
+  adwaita-icon-theme
+  adwaita-icon-theme-legacy
+  gnome-themes-extra
+)
+
 # gnome configs
 if ! [ "$SHELL" = "/bin/zsh" ]; then
   chsh -s /bin/zsh

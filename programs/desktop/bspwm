@@ -32,7 +32,8 @@ bspwm_touchpad=(
 )
 
 bspwm_aur=(
-  xautolock 
+  #xautolock 
+  oblogout
 )
 
 multimedia=(
@@ -41,7 +42,7 @@ multimedia=(
   amberol
   celluloid
   pavucontrol
-  nautilus gvfs-mtp android-udev
+  thunar gvfs-mtp gvfs-gphoto2 libmtp
   eyedropper palette
   ghostty
   imv
@@ -55,7 +56,11 @@ bspwm_theme=(
   adwaita-fonts
   adwaita-icon-theme
   adwaita-icon-theme-legacy
-  gnome-themes-extra
+
+  breeze-cursors
+  ttf-jetbrains-mono ttf-jetbrains-mono-nerd
+  papirus-icon-theme
+  adapta-gtk-theme
 )
 
 # bspwm configs
