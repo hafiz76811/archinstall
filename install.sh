@@ -1,7 +1,5 @@
 #!/bin/bash
 
-conf=false
-
 source programs/functions.sh
 source programs/packages
 source programs/logos
@@ -14,12 +12,13 @@ sudo pacman -Syyu
 
 
 # install packages
-# installing_logo
-# pacman_install ${package_basic[@]};
-# pacman_install ${package_hardware[@]};
-# pacman_install ${basic_fonts[@]};
-# pacman_install ${additional_tools[@]};
+installing_logo
+pacman_install ${package_basic[@]};
+pacman_install ${package_hardware[@]};
+pacman_install ${basic_fonts[@]};
+pacman_install ${additional_tools[@]};
 
+sleep 20
 
 # install aur helper
 source programs/yay.sh
@@ -51,14 +50,6 @@ if [ "$hypr" = "y" ] || [ -z "$hypr" ]; then
   service_enable ${hypr_service[@]};
   service_enable_user ${hypr_user_service[@]};
   service_disable ${hypr_disable[@]};
-
-  if $conf; then
-    git clone https://github.com/hafiz76811/hyprland.git
-    if [ -d hyprland ]; then
-      cp -r hyprland/* ~/.config/.
-      rm -r ~/.config/.git
-    fi
-  fi
 fi
 
 
@@ -75,14 +66,6 @@ if [ "$bspwm" = "y" ] || [ -z "$bspwm" ]; then
   # yay_install ${bspwm_aur[@]};
   pacman_install ${multimedia[@]};
   pacman_install ${bspwm_theme[@]};
-
-  if $conf; then
-    git clone https://github.com/hafiz76811/hyprland.git
-    if [ -d bspwm ]; then
-      cp -r bspwm/* ~/.config/.
-      rm -r ~/.config/.git
-    fi
-  fi
 fi
 
 

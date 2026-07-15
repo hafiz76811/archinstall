@@ -46,6 +46,7 @@ additional_tools=(
   man-db
   nano
   neovim
+  tree-sitter-cli
   ripgrep
   fd
   luarocks
