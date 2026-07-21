@@ -15,7 +15,7 @@ bspwm_utilities=(
   xwallpaper
   xorg-xset xss-lock i3lock
   xcolor gcolor3
-  lxsession
+  lxsession #xfce4-session
   maim xclip slop xdotool
   dunst libnotify
   polybar
@@ -38,13 +38,11 @@ bspwm_aur=(
 
 multimedia=(
   firefox
-  loupe gthumb imagemagick
-  amberol
-  celluloid
-  pavucontrol
+  ristretto imagemagick
+  parole
+  lxmusic
   thunar gvfs-mtp gvfs-gphoto2 libmtp
-  eyedropper palette
-  ghostty
+  pavucontrol
   imv
   mpd mpc
   mpv

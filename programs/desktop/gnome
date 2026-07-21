@@ -3,6 +3,8 @@ gnome_desktop=(
   gnome-extra
   gnome-tweaks
   polkit-gnome
+  extension-manager
+  gnome-browser-connector
 )
 
 gnome_service=(
