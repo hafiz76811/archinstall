@@ -1,0 +1,37 @@
+xfce4_desktop=(
+  xorg xorg-server
+  lightdm-gtk-greeter
+  xfce4 xfce4-goodies
+)
+
+xfce4_service=(
+  lightdm
+)
+
+multimedia=(
+  firefox
+  ristretto imagemagick
+  parole
+  lxmusic
+  thunar gvfs-mtp gvfs-gphoto2 libmtp
+  pavucontrol
+  imv
+  mpd mpc
+  mpv
+  yazi
+)
+
+xfce4_theme=(
+  breeze-cursors
+  ttf-jetbrains-mono ttf-jetbrains-mono-nerd
+  papirus-icon-theme
+  #nordic-theme
+)
+
+# xfce4 configs
+if ! [ "$SHELL" = "/bin/zsh" ]; then
+  chsh -s /bin/zsh
+  localectl set-keymap us
+  localectl set-locale LANG=en_US.UTF-8
+  timedatectl set-timezone Asia/Jakarta
+fi
