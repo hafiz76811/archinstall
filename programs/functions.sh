@@ -7,6 +7,13 @@ pacman_install() {
   done
 }
 
+pacman_remove() {
+  local package=$@
+  for pkg in ${package[@]}; do
+    sudo pacman -Rns ${pkg}
+  done
+}
+
 yay_install() {
   local package=$@
   for pkg in ${package[@]}; do

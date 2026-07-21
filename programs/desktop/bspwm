@@ -69,6 +69,3 @@ if ! [ "$SHELL" = "/bin/zsh" ]; then
   localectl set-locale LANG=en_US.UTF-8
   timedatectl set-timezone Asia/Jakarta
 fi
-
-# display_manager (lightdm)
-# poweroff menu -- xorg-server

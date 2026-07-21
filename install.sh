@@ -18,7 +18,7 @@ pacman_install ${package_hardware[@]};
 pacman_install ${basic_fonts[@]};
 pacman_install ${additional_tools[@]};
 
-sleep 20
+sync && sleep 20
 
 # install aur helper
 source programs/yay.sh
@@ -66,6 +66,32 @@ if [ "$bspwm" = "y" ] || [ -z "$bspwm" ]; then
   # yay_install ${bspwm_aur[@]};
   pacman_install ${multimedia[@]};
   pacman_install ${bspwm_theme[@]};
+fi
+
+
+# install xfce4
+source programs/desktop/xfce4
+read -p "Install... xfce4? [Y/n] " xfce
+if [ "$xfce" = "y" ] || [ -z "$xfce" ]; then
+  xfce4_logo
+  pacman_install ${xfce4_desktop[@]};
+  pacman_install ${xfce4_service[@]};
+  # service_enable ${xfce4_service[@]};
+  pacman_install ${multimedia[@]};
+  pacman_install ${xfce4_theme[@]};
+fi
+
+
+# install lxqt
+source programs/desktop/lxqt
+read -p "Install... lxqt? [Y/n] " lxqt
+if [ "$lxqt" = "y" ] || [ -z "$lxqt" ]; then
+  lxqt_logo
+  pacman_install ${lxqt_desktop[@]};
+  pacman_install ${lxqt_service[@]};
+  # service_enable ${lxqt_service[@]};
+  pacman_install ${multimedia[@]};
+  pacman_install ${lxqt_theme[@]};
 fi
 
 
