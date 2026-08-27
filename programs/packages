@@ -35,10 +35,13 @@ basic_fonts=(
   noto-fonts-emoji
   noto-fonts-extra
   otf-font-awesome
+  ttf-jetbrains-mono
   ttf-jetbrains-mono-nerd
   terminus-font
   ttf-dejavu
   ttf-liberation
+  texlive-langarabic
+  ttf-arabeyes-fonts
 )
 
 additional_tools=(

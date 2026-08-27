@@ -13,10 +13,10 @@ sudo pacman -Syyu
 
 # install packages
 installing_logo
-pacman_install ${package_basic[@]};
-pacman_install ${package_hardware[@]};
-pacman_install ${basic_fonts[@]};
-pacman_install ${additional_tools[@]};
+# pacman_install ${package_basic[@]};
+# pacman_install ${package_hardware[@]};
+# pacman_install ${basic_fonts[@]};
+# pacman_install ${additional_tools[@]};
 
 sync && sleep 20
 
@@ -65,6 +65,7 @@ if [ "$bspwm" = "y" ] || [ -z "$bspwm" ]; then
   pacman_install ${bspwm_touchpad[@]};
   # yay_install ${bspwm_aur[@]};
   pacman_install ${multimedia[@]};
+  pacman_install ${libre_office[@]};
   pacman_install ${bspwm_theme[@]};
 fi
 

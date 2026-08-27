@@ -15,7 +15,7 @@ bspwm_utilities=(
   xwallpaper
   xorg-xset xss-lock i3lock
   xcolor gcolor3
-  lxsession #xfce4-session
+  lxsession nwg-look
   maim xclip slop xdotool
   dunst libnotify
   polybar
@@ -49,6 +49,11 @@ multimedia=(
   yazi
 )
 
+libre_office=(
+  libreoffice-fresh
+  libreoffice-fresh-ar
+)
+
 bspwm_theme=(
   adwaita-cursors
   adwaita-fonts
@@ -57,7 +62,8 @@ bspwm_theme=(
   gnome-themes-extra
 
   breeze-cursors
-  ttf-jetbrains-mono ttf-jetbrains-mono-nerd
+  ttf-jetbrains-mono
+  ttf-jetbrains-mono-nerd
   papirus-icon-theme
   adapta-gtk-theme
 )
